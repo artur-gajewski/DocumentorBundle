@@ -1,0 +1,26 @@
+{
+    "name": "artur-gajewski/phpdocumentor-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony2 bundle to implement phpDocumentor into any project from which the documentation is accessible with a browser.",
+    "keywords": ["phpdocumentor"],
+    "homepage": "https://github.com/artur-gajewski/phpDocumentorBundle",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Artur Gajewski",
+            "email": "info@arturgajewski.com"
+        }
+    ],
+
+    "require": {
+        "php": ">=5.3.2"
+    },
+
+    "autoload": {
+        "psr-0": { "Aga\\DocumentorBundle": "" }
+    },
+    
+    "target-dir": "Aga/DocumentorBundle"
+
+}
