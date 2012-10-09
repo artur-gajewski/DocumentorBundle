@@ -4,7 +4,7 @@ README
 What is the DocumentorBundle?
 -----------------------------
 
-DocumentorBundle is a bundle for Symfony2 projects that enables generation of the project's documentation with the pp/console command, after which documentation is
+DocumentorBundle is a bundle for Symfony2 projects that enables generation of the project's documentation with the app/console command, after which documentation is
 accessible through the browser by entering the location of the newly generated documentation.
 
 
@@ -82,9 +82,3 @@ Want to contribute?
 -------------------
 
 If you want to contribute to this project then just fork it, modify it and send a pull request. It's dead simple!
-
-
-Change log
-----------
-
-2012-10-09: Fixed some issues with path variables for generating documentation
