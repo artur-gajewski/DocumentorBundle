@@ -13,9 +13,9 @@ Features
 
 The DocumentorBundle supports the following:
 
-* *Generates documentation with a simple console command.
-* *No need to enter source and target paths.
-* *Configurable to make sure it only works in your development environment.
+* Generates documentation with a simple console command.
+* No need to enter source and target paths.
+* Configurable to make sure it only works in your development environment.
 
 
 Requirements
