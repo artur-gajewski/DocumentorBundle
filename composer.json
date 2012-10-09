@@ -1,5 +1,5 @@
 {
-    "name": "artur-gajewski/phpdocumentor-bundle",
+    "name": "artur-gajewski/documentor-bundle",
     "type": "symfony-bundle",
     "description": "Symfony2 bundle to implement phpDocumentor into any project from which the documentation is accessible with a browser.",
     "keywords": ["phpdocumentor"],
