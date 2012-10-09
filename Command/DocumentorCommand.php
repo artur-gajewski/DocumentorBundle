@@ -24,7 +24,7 @@ class DocumentorCommand extends ContainerAwareCommand {
     protected function configure() 
     {
         $this->setName('documentation:create')
-            ->setDescription('Create project documentation with phpDocumentor2');
+             ->setDescription('Creates project documentation with phpDocumentor2 accessible with project\'s url.');
     }
     
     /**
