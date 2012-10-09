@@ -43,10 +43,9 @@ class DocumentorCommand extends ContainerAwareCommand {
         $rootDir = $this->getContainer()->get('kernel')->getRootDir();
         
         $source = realpath($rootDir . '/../src');
-        $ignore = realpath($rootDir . '/../src/Aga');
         $target = realpath(__DIR__ . '/../Resources/public');
         
-        $command = 'phpdoc -d ' . $source . ' -t ' . $target . ' --ignore ' . $ignore;
+        $command = 'phpdoc -d ' . $source . ' -t ' . $target;
         exec($command);
         
         $output->writeln("Run the following command to install assets to the public folder:");
