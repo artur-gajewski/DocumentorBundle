@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "description": "Symfony2 bundle to implement phpDocumentor into any project from which the documentation is accessible with a browser.",
     "keywords": ["phpdocumentor"],
-    "homepage": "https://github.com/artur-gajewski/phpDocumentorBundle",
+    "homepage": "https://github.com/artur-gajewski/DocumentorBundle",
     "license": "MIT",
     "minimum-stability": "dev",
     "authors": [
