@@ -25,7 +25,7 @@ The DocumentorBundle requires the following:
 
 * PHP 5.3.3 or higher
 * [phpDocumentor2](https://github.com/phpDocumentor/phpDocumentor2) 
-* The phpdoc command should be callable
+* The phpDocumentor2 should be callable as phpdoc from the CLI
 
 
 Installation
@@ -61,9 +61,9 @@ Go to your project root and run the command:
 
 This command will go through your src/ folder and create documentation based on the files within that folder.
 
-Once the generation of documentation is complete, you need to install the assets into the web folder:
+After successful generation of the documentation files, it will run app/console assets:install for you to copy generated documentation to the web/bundles/documentor folder.
 
-    $ app/console assets:install web
+Once the generation of documentation is complete, you need to install the assets into the web folder:
 
 Now all you have to do is point your browser to http://www.yourproject.com/documentor/index.html
 

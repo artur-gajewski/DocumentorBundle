@@ -7,6 +7,9 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
  * Command for the console
@@ -33,6 +36,8 @@ class DocumentorCommand extends ContainerAwareCommand {
      * This function checks all source code from the src folder, ignores this bundle's
      * files, and generates documentation HTML with phpDocumentor2.
      * 
+     * After a successful operation, it will install assets with app/console assets:install
+     * 
      * @param InputInterface $input
      * @param OutputInterface $output 
      */
@@ -48,7 +53,13 @@ class DocumentorCommand extends ContainerAwareCommand {
         $command = 'phpdoc -d ' . $source . ' -t ' . $target;
         exec($command);
         
-        $output->writeln("Run the following command to install assets to the public folder:");
-        $output->writeln("app/console assets:install --symlink web");
+        $assetsCommand = $this->getApplication()->find('assets:install');
+
+        $arguments = array(
+            'command' => 'assets:install'
+        );
+
+        $input = new ArrayInput($arguments);
+        $assetsCommand->run($input, $output);
     }
 }
