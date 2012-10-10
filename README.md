@@ -63,8 +63,6 @@ This command will go through your src/ folder and create documentation based on 
 
 After successful generation of the documentation files, it will run app/console assets:install for you to copy generated documentation to the web/bundles/documentor folder.
 
-Once the generation of documentation is complete, you need to install the assets into the web folder:
-
 Now all you have to do is point your browser to http://www.yourproject.com/documentor/index.html
 
 
