@@ -10,6 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Process\Process;
 
 /**
  * Command for the console
@@ -51,8 +52,16 @@ class DocumentorCommand extends ContainerAwareCommand {
         $target = realpath(__DIR__ . '/../Resources/public');
         
         $command = 'phpdoc -d ' . $source . ' -t ' . $target;
-        exec($command);
         
+        $process = new Process($command);
+        $process->setTimeout(3600);
+        $process->run();
+        if (!$process->isSuccessful()) {
+            throw new \RuntimeException($process->getErrorOutput());
+        }
+
+        echo $process->getOutput();
+
         $assetsCommand = $this->getApplication()->find('assets:install');
 
         $arguments = array(
