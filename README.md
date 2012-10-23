@@ -1,17 +1,24 @@
 README
 ======
 
-What is the DocumentorBundle?
------------------------------
+What is DocumentorBundle?
+-------------------------
 
-DocumentorBundle is a bundle for Symfony2 projects that enables generation of the project's documentation with the app/console command, after which documentation is
-accessible through the browser by entering the location of the newly generated documentation.
+DocumentorBundle is a Symfony2 bundle that wraps [phpDocumentor2](https://github.com/phpDocumentor/phpDocumentor2) to generate your project's documentation.
+
+
+Basic Usage
+-----------
+
+1. Install and enable the bundle for your project's development environment
+2. Run `app/consoledocumentation:create` to generate the documentation for files located in `./src`
+3. Your project documentation is now available at `web/bundles/documentor` or http://yourproject.dev/app\_dev.php/bundles/documentor/index.html
 
 
 Features
 --------
 
-The DocumentorBundle supports the following:
+DocumentorBundle boasts the following features:
 
 * Generates documentation with a simple console command.
 * No need to enter source and target paths.
@@ -21,58 +28,70 @@ The DocumentorBundle supports the following:
 Requirements
 ------------
 
-The DocumentorBundle requires the following:
+DocumentorBundle requires the following:
 
 * PHP 5.3.3 or higher
 * [phpDocumentor2](https://github.com/phpDocumentor/phpDocumentor2) 
-* The phpDocumentor2 should be callable as phpdoc from the CLI
+* phpDocumentor2 should be callable as `phpdoc` from the CLI
 
 
 Installation
 ------------
 
-Go to your project directory and add the following line to the "require" list in the composer.json file:
+1. Add DocumentorBundle to your `composer.json` file:
 
-```php
-"artur-gajewski/phpdocumentor-bundle": "dev-master"
+    ```js
+    {
+        "require": {
+            "artur-gajewski/phpdocumentor-bundle": "dev-master"
+        }
+    }
+    ```
+
+2. Tell Composer to update this bundle:
+
+    ```bash
+    php composer.phar update artur-gajewski/phpdocumentor-bundle
+    ```
+
+3. Enable the bundle for only your development environment:
+
+    ```php
+    // app/AppKernel.php
+
+        public function registerBundles()
+        {
+            // Register normal bundles
+
+            if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+                // ...
+                $bundles[] = new Aga\DocumentorBundle\DocumentorBundle();
+            }
+        }
+    ```
+
+4. Thats it! If you wish to install this bundle manually, install to `src/Aga/DocumentorBundle`
+
+
+How to use DocumentorBundle?
+----------------------------
+
+Go to your project root and generate the documentation using the bundle's built-in DocumentorCommand:
+
+```bash
+$ app/console documentation:create
 ```
 
-Now run Composer:
+This command will generate documentation for all files in the `src/` directory.
 
-```php
-php composer.phar install
-```
-
-Finally, add the bundle into the AppKernel.php file in your Symfony2 project.
-
-```php
-$bundles[] = new \Aga\DocumentorBundle\DocumentorBundle();
-```
-
-Thats it! If you wish to install this bundle manually, install the contents of this package into src/Aga/DocumentorBundle folder.
-
-
-How to use the DocumentorBundle?
---------------------------------
-
-Go to your project root and run the command:
-
-    $ app/console documentation:create
-
-This command will go through your src/ folder and create documentation based on the files within that folder.
-
-After successful generation of the documentation files, it will run app/console assets:install for you to copy generated documentation to the web/bundles/documentor folder.
-
-Now all you have to do is point your browser to http://www.yourproject.com/documentor/index.html
+After generating the documentation, the command executes `app/console assets:install` to copy the newly generated documentation to `web/bundles/documentor`, where you can access it from disk or via your project's website at http://yourproject.dev/app_dev.php/bundles/documentor/index.html
 
 
 Contact
 -------
 
-To come in contact is really simple and can be done in a variety of ways.
-
 * Twitter: [@GajewskiArtur](http://twitter.com/GajewskiArtur)
-* Github: [https://github.com/artur-gajewski](https://github.com/artur-gajewski)
+* Github: <https://github.com/artur-gajewski>
 * E-mail:  [info@arturgajewski.com](mailto:info@arturgajewski.com)
 
 
