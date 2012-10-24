@@ -51,7 +51,8 @@ class DocumentorCommand extends ContainerAwareCommand {
         $source = realpath($rootDir . '/../src');
         $target = realpath(__DIR__ . '/../Resources/public');
         
-        $command = 'phpdoc -d ' . $source . ' -t ' . $target;
+        $phpDocPath = realpath($rootDir . '/../bin/phpdoc.php');
+        $command = $phpDocPath . ' -d ' . $source . ' -t ' . $target;
         
         $process = new Process($command);
         $process->setTimeout(3600);
