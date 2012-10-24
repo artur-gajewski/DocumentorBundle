@@ -38,11 +38,13 @@ DocumentorBundle requires the following:
 Installation
 ------------
 
+The suggested install method is via [Composer](http://getcomposer.org)
+
 1. Add DocumentorBundle to your `composer.json` file:
 
     ```js
     {
-        "require": {
+        "require-dev": {
             "artur-gajewski/phpdocumentor-bundle": "dev-master"
         }
     }
@@ -51,10 +53,10 @@ Installation
 2. Tell Composer to update this bundle:
 
     ```bash
-    php composer.phar update artur-gajewski/phpdocumentor-bundle
+    php composer.phar update artur-gajewski/phpdocumentor-bundle --dev
     ```
 
-3. Enable the bundle for only your development environment:
+3. Enable the bundle for your development environment:
 
     ```php
     // app/AppKernel.php
@@ -69,8 +71,6 @@ Installation
             }
         }
     ```
-
-4. Thats it! If you wish to install this bundle manually, install to `src/Aga/DocumentorBundle`
 
 
 How to use DocumentorBundle?
