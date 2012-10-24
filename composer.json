@@ -14,13 +14,14 @@
     ],
 
     "require": {
-        "php": ">=5.3.2"
+        "php": ">=5.3.2",
+        "phpdocumentor/phpdocumentor": "dev-master"
     },
 
     "autoload": {
         "psr-0": { "Aga\\DocumentorBundle": "" }
     },
-    
+
     "target-dir": "Aga/DocumentorBundle"
 
 }
