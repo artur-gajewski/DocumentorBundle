@@ -53,7 +53,7 @@ The suggested install method is via [Composer](http://getcomposer.org)
 2. Tell Composer to update this bundle:
 
     ```bash
-    php composer.phar update artur-gajewski/phpdocumentor-bundle --dev
+    php composer.phar update artur-gajewski/phpdocumentor-bundle
     ```
 
 3. Enable the bundle for your development environment:
